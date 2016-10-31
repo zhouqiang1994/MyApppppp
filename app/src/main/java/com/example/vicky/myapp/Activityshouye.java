@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.ViewSwitcher;
 import android.widget.ViewSwitcher.ViewFactory;
 
@@ -61,6 +62,19 @@ public class Activityshouye extends Activity implements ViewFactory {
                     index=0;
                 }
                 switcher.setImageResource(imagelist[index]);
+            }
+        });
+
+        switcher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(index==0){
+                    Toast.makeText(Activityshouye.this,"童谣",Toast.LENGTH_LONG).show();
+                }else if(index==1){
+                    Toast.makeText(Activityshouye.this,"古诗",Toast.LENGTH_LONG).show();
+                }else if(index==2){
+                    Toast.makeText(Activityshouye.this,"英文歌",Toast.LENGTH_LONG).show();
+                }
             }
         });
 
