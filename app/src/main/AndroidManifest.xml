@@ -18,7 +18,10 @@
         <activity android:name=".Activityshouye" />
         <activity android:name=".Activitytongyao" />
         <activity android:name=".Activityyinwenge" />
-        <activity android:name=".Activitymusic"></activity>
+        <activity android:name=".Activitymusic" />
+        <activity
+            android:name=".Activityvideo"
+            android:label="@string/title_activity_activityvideo"></activity>
     </application>
 
 </manifest>
