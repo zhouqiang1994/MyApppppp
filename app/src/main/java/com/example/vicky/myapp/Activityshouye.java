@@ -2,6 +2,7 @@ package com.example.vicky.myapp;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -69,11 +70,13 @@ public class Activityshouye extends Activity implements ViewFactory {
             @Override
             public void onClick(View v) {
                 if(index==0){
-                    Toast.makeText(Activityshouye.this,"童谣",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(Activityshouye.this,Activitytongyao.class);
+                    startActivity(intent);
                 }else if(index==1){
                     Toast.makeText(Activityshouye.this,"古诗",Toast.LENGTH_LONG).show();
                 }else if(index==2){
-                    Toast.makeText(Activityshouye.this,"英文歌",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(Activityshouye.this,Activityyinwenge.class);
+                    startActivity(intent);
                 }
             }
         });
