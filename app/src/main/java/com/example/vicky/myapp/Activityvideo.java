@@ -18,13 +18,13 @@ public class Activityvideo extends Activity {
         video =(VideoView)findViewById(R.id.videoView);
 
         //拼出在资源文件夹下的视频文件路径string字符串
-        String url="android.resource://"+getPackageName()+"/"+R.raw.cdx_czsm;
+       // String url="android.resource://"+getPackageName()+"/"+R.raw.cdx_czsm;
 
         //字符串解析成uri
-        Uri uri =Uri.parse(url);
+        //Uri uri =Uri.parse(url);
 
         //给videoview设置播放资源
-        video.setVideoURI(uri);
+       // video.setVideoURI(uri);
 
         //用相对布局包裹videoview实现视频全屏播放
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
