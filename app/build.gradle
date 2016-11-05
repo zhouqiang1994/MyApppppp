@@ -22,9 +22,6 @@ android {
 dependencies {
     provided fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:support-v4:25.0.0'
-    compile files('libs/android-support-v4.jar')
-    compile 'com.android.support:support-v13:25.0.0'
-    provided 'com.android.support:support-v4:25.0.0'
+    compile 'com.android.support:support-v4:25.0.0'     //这里只需要这样 就已经引用好了 不用像eclispe那样 在libs包里面在搞一次
     compile 'com.android.support:appcompat-v7:25.0.0'
 }
