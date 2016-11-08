@@ -1,62 +1,43 @@
 package com.example.vicky.myapp;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.support.v4.view.PagerAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Activitytongyao extends Activity {
+public class Activitytongyao extends BaseActivity {
 
-    ImageButton fbutton;
-    ImageButton button1;
+    ImageButton btnRight;
+    ImageButton btnLeft;
+    ImageButton btnBack;
 
     private View view1, view2, view3;
     private ViewPager viewPager;  //对应的viewPager
 
     private List<View> viewList;//view数组
 
-    public Activitytongyao() {
-    }
+    PagerAdapter pagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activitytongyao);
-
-        fbutton = (ImageButton)findViewById(R.id.imageButton6);
-        fbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Activitytongyao.this,Activityshouye.class);
-                startActivity(intent);
-            }
-        });
-
-        //button1 =(ImageButton)findViewById(R.id.imageButtont1);
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Activitytongyao.this,Activitymusic.class);
-                startActivity(intent);
-            }
-        });
+        initData();
+        initView();
 
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setAdapter(pagerAdapter);
+    }
 
+    private void initData() {
         LayoutInflater inflater=getLayoutInflater();
         view1 = inflater.inflate(R.layout.layout1, null);
         view2 = inflater.inflate(R.layout.layout2,null);
@@ -67,7 +48,7 @@ public class Activitytongyao extends Activity {
         viewList.add(view2);
         viewList.add(view3);
 
-        PagerAdapter pagerAdapter = new PagerAdapter() {
+        pagerAdapter = new PagerAdapter() {
             //返回的是页卡的数量
             @Override
             public int getCount() {
@@ -98,7 +79,46 @@ public class Activitytongyao extends Activity {
             }
         };
 
-        viewPager.setAdapter(pagerAdapter);
+    }
+
+    private void initView() {
+        //返回按钮
+        btnBack=(ImageButton)findViewById(R.id.back_button);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        //左边按钮
+        btnLeft=(ImageButton)findViewById(R.id.ib_left);
+        btnLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(viewPager.getCurrentItem()==0) {
+                    viewPager.setCurrentItem(viewList.size(),true);
+                }else{
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()-1,true);
+                }
+            }
+        });
+
+        //右边按钮
+        btnRight=(ImageButton)findViewById(R.id.ib_right);
+        btnRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(viewPager.getCurrentItem()+1>=viewList.size()) {
+                    viewPager.setCurrentItem(0,true);
+                }else{
+                    viewPager.setCurrentItem(viewPager.getCurrentItem()+1,true);
+                }
+            }
+        });
+
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+
     }
 
 

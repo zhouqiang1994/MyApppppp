@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
 
     private ImageButton ibutton;
 

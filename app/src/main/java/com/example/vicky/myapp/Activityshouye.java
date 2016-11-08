@@ -15,7 +15,7 @@ import android.widget.Toast;
 import android.widget.ViewSwitcher;
 import android.widget.ViewSwitcher.ViewFactory;
 
-public class Activityshouye extends Activity implements ViewFactory {
+public class Activityshouye extends BaseActivity implements ViewFactory {
 
     private ImageSwitcher switcher;
     private ImageButton sbutton;
