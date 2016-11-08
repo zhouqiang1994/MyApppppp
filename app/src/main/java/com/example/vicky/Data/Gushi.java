@@ -13,14 +13,14 @@ public class Gushi {
     public Gushi(){
 
 
-        pathList.add(FileUtils.getYingwengeCache()+"/1.mp3");
-        pathList.add(FileUtils.getYingwengeCache()+"/2.mp3");
-        pathList.add(FileUtils.getYingwengeCache()+"/3.mp3");
-        pathList.add(FileUtils.getYingwengeCache()+"/4.mp3");
-        pathList.add(FileUtils.getYingwengeCache()+"/5.mp3");
-        pathList.add(FileUtils.getYingwengeCache()+"/6.mp3");
-        pathList.add(FileUtils.getYingwengeCache()+"/7.mp3");
-        pathList.add(FileUtils.getYingwengeCache()+"/8.mp3");
+        pathList.add(FileUtils.getGushiCache()+"/1.mp3");
+        pathList.add(FileUtils.getGushiCache()+"/2.mp3");
+        pathList.add(FileUtils.getGushiCache()+"/3.mp3");
+        pathList.add(FileUtils.getGushiCache()+"/4.mp3");
+        pathList.add(FileUtils.getGushiCache()+"/5.mp3");
+        pathList.add(FileUtils.getGushiCache()+"/6.mp3");
+        pathList.add(FileUtils.getGushiCache()+"/7.mp3");
+        pathList.add(FileUtils.getGushiCache()+"/8.mp3");
     }
 
     public ArrayList<String> getPathList() {

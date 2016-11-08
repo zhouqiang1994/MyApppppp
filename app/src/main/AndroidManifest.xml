@@ -24,6 +24,7 @@
         </activity>
         <activity android:name=".Activityshouye" />
         <activity android:name=".Activitytongyao" />
+        <activity android:name=".ActivityGushi" />
         <activity android:name=".Activityyinwenge" />
         <activity android:name=".ActivityMusic" >
 
