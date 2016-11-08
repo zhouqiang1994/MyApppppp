@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Activitytongyao extends BaseActivity {
+public class ActivityTongYao extends BaseActivity {
 
     ImageButton btnRight;
     ImageButton btnLeft;

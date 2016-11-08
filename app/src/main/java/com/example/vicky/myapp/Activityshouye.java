@@ -1,18 +1,13 @@
 package com.example.vicky.myapp;
 
-import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.Toast;
-import android.widget.ViewSwitcher;
 import android.widget.ViewSwitcher.ViewFactory;
 
 public class Activityshouye extends BaseActivity implements ViewFactory {
@@ -70,7 +65,7 @@ public class Activityshouye extends BaseActivity implements ViewFactory {
             @Override
             public void onClick(View v) {
                 if(index==0){
-                    Intent intent = new Intent(Activityshouye.this,Activitytongyao.class);
+                    Intent intent = new Intent(Activityshouye.this,ActivityTongYao.class);
                     startActivity(intent);
                 }else if(index==1){
                     Toast.makeText(Activityshouye.this,"古诗",Toast.LENGTH_LONG).show();

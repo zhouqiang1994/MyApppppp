@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activityshouye" />
-        <activity android:name=".Activitytongyao" />
+        <activity android:name=".ActivityTongYao" />
         <activity android:name=".Activityyinwenge" />
         <activity android:name=".Activitymusic" />
         <activity
