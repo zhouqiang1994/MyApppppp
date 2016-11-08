@@ -1,10 +1,12 @@
 package com.example.vicky.myapp;
 
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.MediaController;
 import android.widget.RelativeLayout;
 import android.widget.VideoView;
 
@@ -18,14 +20,20 @@ public class ActivityVideo extends BaseActivity {
     private ImageButton btnStop;
     private ImageButton btnBack;
 
+    public static  final String PATH="path";
+    private String path;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activityvideo);
         initView();
+        path = getIntent().getStringExtra(PATH);
         video =(VideoView)findViewById(R.id.videoView);
-        String videoPath  = FileUtils.getExtDirCache()+"/movie.mov";
+        String videoPath  = path;
         video.setVideoPath(videoPath);
+        MediaController controller = new MediaController(this);
+        video.setMediaController(controller);
         video.start();
     }
 
