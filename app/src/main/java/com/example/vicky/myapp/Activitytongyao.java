@@ -9,22 +9,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.example.vicky.view.TableView;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ActivityTongYao extends BaseActivity {
+public class Activitytongyao extends BaseActivity {
 
     ImageButton btnRight;
     ImageButton btnLeft;
     ImageButton btnBack;
 
-    private View view1, view2, view3;
+    private View  view2, view3;
     private ViewPager viewPager;  //对应的viewPager
 
     private List<View> viewList;//view数组
 
     PagerAdapter pagerAdapter;
+
+    TableView tableView1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +43,13 @@ public class ActivityTongYao extends BaseActivity {
 
     private void initData() {
         LayoutInflater inflater=getLayoutInflater();
-        view1 = inflater.inflate(R.layout.layout1, null);
+        tableView1 = new TableView(this);
+        tableView1.setDrawList(this,null);
         view2 = inflater.inflate(R.layout.layout2,null);
         view3 = inflater.inflate(R.layout.layout3, null);
 
         viewList = new ArrayList<View>();// 将要分页显示的View装入数组中
-        viewList.add(view1);
+        viewList.add(tableView1);
         viewList.add(view2);
         viewList.add(view3);
 

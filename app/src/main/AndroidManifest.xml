@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.vicky.myapp">
 
+    <!--往sdcard中写入数据的权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <!--在sdcard中创建/删除文件的权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
+    <!--在sdcard中创建/删除文件的权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,12 +23,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activityshouye" />
-        <activity android:name=".ActivityTongYao" />
+        <activity android:name=".Activitytongyao" />
         <activity android:name=".Activityyinwenge" />
-        <activity android:name=".Activitymusic" />
+        <activity android:name=".ActivityMusic" >
+
+        </activity>
         <activity
-            android:name=".Activityvideo"
-            android:label="@string/title_activity_activityvideo"></activity>
+            android:name=".ActivityVideo"
+            android:label="@string/title_activity_activityvideo">
+        </activity>
     </application>
 
 </manifest>
