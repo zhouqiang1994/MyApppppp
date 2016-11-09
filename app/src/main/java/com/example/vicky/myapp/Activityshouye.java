@@ -15,7 +15,7 @@ import android.widget.Toast;
 import android.widget.ViewSwitcher;
 import android.widget.ViewSwitcher.ViewFactory;
 
-public class Activityshouye extends Activity implements ViewFactory {
+public class Activityshouye extends BaseActivity implements ViewFactory {
 
     private ImageSwitcher switcher;
     private ImageButton sbutton;
@@ -73,7 +73,8 @@ public class Activityshouye extends Activity implements ViewFactory {
                     Intent intent = new Intent(Activityshouye.this,Activitytongyao.class);
                     startActivity(intent);
                 }else if(index==1){
-                    Toast.makeText(Activityshouye.this,"古诗",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(Activityshouye.this,ActivityGushi.class);
+                    startActivity(intent);
                 }else if(index==2){
                     Intent intent = new Intent(Activityshouye.this,Activityyinwenge.class);
                     startActivity(intent);

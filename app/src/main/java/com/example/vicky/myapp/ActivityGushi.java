@@ -3,18 +3,18 @@ package com.example.vicky.myapp;
 import android.content.Intent;
 
 
-public class Activitytongyao extends ShowBaseActivity {
+public class ActivityGushi extends ShowBaseActivity {
 
     @Override
     protected void setMyView() {
-        setContentView(R.layout.activity_activitytongyao);
+        setContentView(R.layout.activity_gushi);
     }
 
     @Override
     protected Intent getMyIntent(int num) {
-        Intent intent =new Intent(Activitytongyao.this,ActivityMusic.class);
+        Intent intent =new Intent(ActivityGushi.this,ActivityMusic.class);
         intent.putExtra(ActivityMusic.PATH,num);
-        intent.putExtra(ActivityMusic.TYPE,ActivityMusic.TONGYAO);
+        intent.putExtra(ActivityMusic.TYPE,ActivityMusic.GUSHI);
         return intent;
     }
 }

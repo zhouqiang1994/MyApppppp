@@ -1,43 +1,65 @@
 package com.example.vicky.myapp;
 
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.MediaController;
 import android.widget.RelativeLayout;
 import android.widget.VideoView;
 
-public class Activityvideo extends Activity {
+import com.example.vicky.FileUtils;
+
+import java.io.File;
+
+public class ActivityVideo extends BaseActivity {
 
     VideoView video;
+    private ImageButton btnStop;
+    private ImageButton btnBack;
+
+    public static  final String PATH="path";
+    private String path;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activityvideo);
-
+        initView();
+        path = getIntent().getStringExtra(PATH);
         video =(VideoView)findViewById(R.id.videoView);
-
-        //拼出在资源文件夹下的视频文件路径string字符串
-       // String url="android.resource://"+getPackageName()+"/"+R.raw.cdx_czsm;
-
-        //字符串解析成uri
-        //Uri uri =Uri.parse(url);
-
-        //给videoview设置播放资源
-       // video.setVideoURI(uri);
-
-        //用相对布局包裹videoview实现视频全屏播放
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.MATCH_PARENT,
-                RelativeLayout.LayoutParams.MATCH_PARENT);
-        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-
-        video.setLayoutParams(layoutParams);
-
+        String videoPath  = path;
+        video.setVideoPath(videoPath);
+        MediaController controller = new MediaController(this);
+        video.setMediaController(controller);
         video.start();
+    }
+
+    private void initView() {
+        btnBack=(ImageButton)findViewById(R.id.back_button);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        btnStop=(ImageButton)findViewById(R.id.pause);
+        btnStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(video.isPlaying()){
+                    video.pause();
+                    btnStop.setImageDrawable(getDrawable(R.drawable.yinyuebf));
+                }else{
+                    video.start();
+                    btnStop.setImageDrawable(getDrawable(R.drawable.yinyuezt));
+                }
+            }
+        });
+
     }
 
 }
