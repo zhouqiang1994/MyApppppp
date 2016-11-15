@@ -2,7 +2,7 @@ package com.example.vicky.myapp;
 
 import android.content.Intent;
 
-public class Activityyinwenge extends ShowBaseActivity {
+public class Activityyinwenge extends ShowBaseActivity1 {
 
     @Override
     protected void setMyView() {

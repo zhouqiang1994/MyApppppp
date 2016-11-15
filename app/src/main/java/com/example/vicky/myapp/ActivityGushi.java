@@ -3,7 +3,7 @@ package com.example.vicky.myapp;
 import android.content.Intent;
 
 
-public class ActivityGushi extends ShowBaseActivity {
+public class ActivityGushi extends ShowBaseActivity3 {
 
     @Override
     protected void setMyView() {

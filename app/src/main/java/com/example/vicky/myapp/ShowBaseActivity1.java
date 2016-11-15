@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import com.example.vicky.view.TableView;
+import com.example.vicky.view.TableView1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ import java.util.List;
  * Created by hongyou on 16/11/8.
  */
 
-public abstract class ShowBaseActivity extends BaseActivity {
+public abstract class ShowBaseActivity1 extends BaseActivity {
 
     ImageButton btnRight;
     ImageButton btnLeft;
@@ -30,8 +30,8 @@ public abstract class ShowBaseActivity extends BaseActivity {
 
     PagerAdapter pagerAdapter;
 
-    TableView tableView1;
-    TableView tableView2;
+    TableView1 tableView1;
+    TableView1 tableView2;
 
     @Override
     /*当一个Activity在PAUSE时，被kill之前，它可以调用onSaveInstanceState()来保存当前activity的状态信息
@@ -87,18 +87,18 @@ public abstract class ShowBaseActivity extends BaseActivity {
     }
 
     private void initTableView() {
-        tableView1 = new TableView(this);
+        tableView1 = new TableView1(this);
         tableView1.setDrawList(this,null);
-        tableView1.setOnItemClick(new TableView.OnItemClickListener() {
+        tableView1.setOnItemClick(new TableView1.OnItemClickListener() {
             @Override
             public void onItemClick(int num) {
                 startActivity(getMyIntent(num));
 
             }
         });
-        tableView2 = new TableView(this);
+        tableView2 = new TableView1(this);
         tableView2.setDrawList(this,null);
-        tableView2.setOnItemClick(new TableView.OnItemClickListener() {
+        tableView2.setOnItemClick(new TableView1.OnItemClickListener() {
             @Override
             public void onItemClick(int num) {
                 startActivity(getMyIntent(num+4));
@@ -142,7 +142,7 @@ public abstract class ShowBaseActivity extends BaseActivity {
             }
         });
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager = (ViewPager) findViewById(R.id.viewpager1);
 
     }
 

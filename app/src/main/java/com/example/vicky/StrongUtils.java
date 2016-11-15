@@ -23,22 +23,37 @@ import java.util.concurrent.TimeoutException;
  */
 
 public class StrongUtils {
+    /**
+     * getItemFromList：根据ListId和下标获取一项；
+     *
+    */
     public static <E> E getItemFromList(List<E> list, int index) {
         if (list == null || index < 0 || index >= list.size()) return null;
         return list.get(index);
     }
 
+    /**
+     * 判断是否存在SD卡：只有当SD卡存在且可读写时返回true
+     * */
     public static boolean existSDCard() {
-        String state = Environment.getExternalStorageState();
+        String state = Environment.getExternalStorageState();//判断SD卡的状态
         return state != null && state.equalsIgnoreCase(Environment.MEDIA_MOUNTED);
+        //只有在SD卡状态为MEDIA_MOUNTED时，目录才是可读可写，并且可以创建目录及文件。
     }
 
+    /**
+     * 返回列表的大小
+     * */
     public static int count(List list) {
         return list == null ? 0 : list.size();
     }
 
+
+    /*把字符串变成long类型*/
     public static long toLong(String s, long def) {
         if (TextUtils.isEmpty(s)) return def;
+        //当 s 是空（null）或空串（""）时 TextUtils.isEmpty(str) 返回 true，否则返回 false
+        //也就是说，当s是空或空串时，返回def
         try {
             return Long.parseLong(s);
         } catch (Exception e) {
@@ -46,6 +61,7 @@ public class StrongUtils {
         }
     }
 
+    /*把字符串变成int类型*/
     public static int toInt(String str, int def) {
         try {
             return Integer.parseInt(str);
