@@ -24,7 +24,7 @@ public class Activityshouye extends BaseActivity implements ViewFactory {
     private static int index = 0;//显示图片资源
 
     private static final Integer[] imagelist = {
-            R.drawable.shouyetongyao,R.drawable.shouyegs,R.drawable.shouyeywg,
+            R.drawable.shouyety,R.drawable.shouyegs,R.drawable.shouyeywg,
     };
 
 

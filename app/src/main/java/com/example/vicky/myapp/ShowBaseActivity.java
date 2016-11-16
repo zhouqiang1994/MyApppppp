@@ -34,6 +34,9 @@ public abstract class ShowBaseActivity extends BaseActivity {
     TableView tableView2;
 
     @Override
+    /*当一个Activity在PAUSE时，被kill之前，它可以调用onSaveInstanceState()来保存当前activity的状态信息
+    * 用来保存状态信息的Bundle会同时传给两个method,即onRestoreInstanceState() and onCreate().
+    * */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setMyView();
@@ -43,11 +46,11 @@ public abstract class ShowBaseActivity extends BaseActivity {
     }
 
     private void initData() {
-        LayoutInflater inflater=getLayoutInflater();
+        LayoutInflater inflater=getLayoutInflater();//LayoutInflater是用来找res/layout/下的xml布局文件，并且实例化
         initTableView();
 
         viewList = new ArrayList<View>();// 将要分页显示的View装入数组中
-        viewList.add(tableView1);
+        viewList.add(tableView1);//两个分页
         viewList.add(tableView2);
 
         pagerAdapter = new PagerAdapter() {

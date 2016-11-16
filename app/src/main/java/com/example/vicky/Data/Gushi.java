@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 
 public class Gushi {
-    ArrayList<String> pathList=new ArrayList<>();
+    ArrayList<String> pathList=new ArrayList<>();//数组存放资源
     public Gushi(){
 
 

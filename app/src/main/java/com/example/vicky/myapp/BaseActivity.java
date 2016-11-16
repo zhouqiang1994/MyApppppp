@@ -10,6 +10,10 @@ import android.os.Bundle;
 
 public class BaseActivity extends Activity {
 
+    /*屏幕的方向
+    * ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE,横屏
+    * setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);)强制为横屏
+    * */
     @Override
     protected void onResume() {
         if(getRequestedOrientation()!= ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE){
