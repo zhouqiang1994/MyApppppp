@@ -45,10 +45,10 @@ public class TableView2 extends LinearLayout implements View.OnClickListener{
 //    }
 
     public void  setDrawList(Context context , ArrayList<Integer> drawList){
-        btn1.setBackgroundResource(R.drawable.gushi1);
-        btn2.setBackgroundResource(R.drawable.gushi2);
-        btn3.setBackgroundResource(R.drawable.gushi3);
-        btn4.setBackgroundResource(R.drawable.gushi4);
+        btn1.setBackgroundResource(drawList.get(0));
+        btn2.setBackgroundResource(drawList.get(1));
+        btn3.setBackgroundResource(drawList.get(2));
+        btn4.setBackgroundResource(drawList.get(3));
 
     }
 
@@ -69,7 +69,7 @@ public class TableView2 extends LinearLayout implements View.OnClickListener{
             onItemClickListener.onItemClick(0);
         }else if(view.getId()==R.id.imageButtont2){
             onItemClickListener.onItemClick(1);
-        }else if(view.getId()==R.id.imageButton3){
+        }else if(view.getId()==R.id.imageButtont3){
             onItemClickListener.onItemClick(2);
         }else if(view.getId()==R.id.imageButtont4){
             onItemClickListener.onItemClick(3);
