@@ -7,10 +7,20 @@
     android:background="@drawable/yinyuebjt">
 
 
+
+    <ImageView
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="80dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/yinyuebb"
+        android:scaleType="centerInside"
+        android:background="#00000000"/>
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         >
 
         <ImageButton
@@ -42,13 +52,23 @@
             android:id="@+id/next"
             android:layout_gravity="center_vertical"
             />
+
     </LinearLayout>
 
     <ImageButton
+        android:layout_alignParentLeft="true"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:src="@drawable/yinyuefh"
         android:scaleType="centerInside"
+        android:background="#00000000"/>
+
+    <ImageButton
+        android:layout_alignParentRight="true"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/yinyuemv"
         android:background="#00000000"/>
 
 
