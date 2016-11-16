@@ -12,9 +12,9 @@ public class ActivityGushi extends ShowBaseActivity3 {
 
     @Override
     protected Intent getMyIntent(int num) {
-        Intent intent =new Intent(ActivityGushi.this,ActivityMusic.class);
-        intent.putExtra(ActivityMusic.PATH,num);
-        intent.putExtra(ActivityMusic.TYPE,ActivityMusic.GUSHI);
+        Intent intent =new Intent(ActivityGushi.this,Activitymusic.class);
+        intent.putExtra(Activitymusic.PATH,num);
+        intent.putExtra(Activitymusic.TYPE, Activitymusic.GUSHI);
         return intent;
     }
 }

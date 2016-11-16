@@ -12,9 +12,9 @@ public class Activitytongyao extends ShowBaseActivity {
 
     @Override
     protected Intent getMyIntent(int num) {
-        Intent intent =new Intent(Activitytongyao.this,ActivityMusic.class);
-        intent.putExtra(ActivityMusic.PATH,num);
-        intent.putExtra(ActivityMusic.TYPE,ActivityMusic.TONGYAO);
+        Intent intent =new Intent(Activitytongyao.this,Activitymusic.class);
+        intent.putExtra(Activitymusic.PATH,num);
+        intent.putExtra(Activitymusic.TYPE, Activitymusic.TONGYAO);
         return intent;
     }
 }

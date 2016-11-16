@@ -1,13 +1,12 @@
 package com.example.vicky.myapp;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.vicky.Data.Gushi;
@@ -15,10 +14,9 @@ import com.example.vicky.Data.Tongyao;
 import com.example.vicky.Data.Yingwenge;
 import com.example.vicky.FileUtils;
 
-import java.io.File;
 import java.util.ArrayList;
 
-public class ActivityMusic extends BaseActivity {
+public class Activitymusic extends BaseActivity {
     public MediaPlayer player; // 定义多媒体对象
     public static  final String PATH="path";
     public static  final String TYPE="type";
@@ -29,12 +27,15 @@ public class ActivityMusic extends BaseActivity {
     private int type;
     private int num;
     private ArrayList<String> pathList=new ArrayList<>();
-
+    private ArrayList<Integer> wordList=new ArrayList<>();
     private int nowNum;
 
     private ImageButton next;
     private ImageButton last;
     private ImageButton stop;
+    private ImageButton back;
+    private ImageButton video;
+    private ImageView word;
 
 
 
@@ -42,11 +43,12 @@ public class ActivityMusic extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activitymusic);
+        word =(ImageView)findViewById(R.id.ivWord);
         initButton();
         player = new MediaPlayer();
 
         initPath();
-
+        word.setImageResource(wordList.get(num));
         start(pathList.get(num));//得到当前播放音乐的路径);
 
     }
@@ -74,12 +76,32 @@ public class ActivityMusic extends BaseActivity {
             }
         });
 
+        video = (ImageButton)findViewById(R.id.video);
+        video.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Activitymusic.this,ActivityVideo.class);
+                intent.putExtra(ActivityVideo.PATH,FileUtils.getExtDirCache()+"/movie.mp4");
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
         last = (ImageButton)findViewById(R.id.last);
         last.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 last();
                 stop.setImageDrawable(getDrawable(R.drawable.yinyuezt));
+            }
+        });
+
+        last = (ImageButton)findViewById(R.id.fanhui);
+        last.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }
@@ -90,10 +112,13 @@ public class ActivityMusic extends BaseActivity {
         nowNum=num;
         if(type==YINGWENGE){
             pathList= new Yingwenge().getPathList();
+            wordList = new Yingwenge().getWordList();
         }else if(type==TONGYAO){
             pathList= new Tongyao().getTongyaoPathList();
+            wordList = new Tongyao().getWordList();
         }else if(type==GUSHI){
             pathList= new Gushi().getPathList();
+            wordList = new Gushi().getWordList();
         }
     }
 
@@ -103,6 +128,8 @@ public class ActivityMusic extends BaseActivity {
             return;
         }
         nowNum++;
+//        Toast.makeText(this,pathList.get(nowNum),Toast.LENGTH_LONG).show();
+        word.setImageResource(wordList.get(nowNum));
         start(pathList.get(nowNum));
     }
     public void last() {
@@ -111,6 +138,8 @@ public class ActivityMusic extends BaseActivity {
             return;
         }
         nowNum--;
+//        Toast.makeText(this,pathList.get(nowNum),Toast.LENGTH_LONG).show();
+        word.setImageResource(wordList.get(nowNum));
         start(pathList.get(nowNum));
     }
 
@@ -126,18 +155,6 @@ public class ActivityMusic extends BaseActivity {
         }
     }
 
-    public void pause() {
-        if (player.isPlaying())
-            player.pause();
-        else
-            player.start();
-    }
-
-    public void stop() {
-        if (player.isPlaying()) {
-            player.stop();
-        }
-    }
 
     @Override
     public void finish() {

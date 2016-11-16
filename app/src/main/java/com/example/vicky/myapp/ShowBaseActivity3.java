@@ -88,7 +88,12 @@ public abstract class ShowBaseActivity3 extends BaseActivity {
 
     private void initTableView() {
         tableView1 = new TableView2(this);
-        tableView1.setDrawList(this,null);
+        ArrayList<Integer> drawList =new ArrayList<>();
+        drawList.add(R.drawable.gushi1);
+        drawList.add(R.drawable.gushi2);
+        drawList.add(R.drawable.gushi3);
+        drawList.add(R.drawable.gushi4);
+        tableView1.setDrawList(this,drawList);
         tableView1.setOnItemClick(new TableView2.OnItemClickListener() {
             @Override
             public void onItemClick(int num) {
@@ -97,7 +102,12 @@ public abstract class ShowBaseActivity3 extends BaseActivity {
             }
         });
         tableView2 = new TableView2(this);
-        tableView2.setDrawList(this,null);
+        ArrayList<Integer> drawList1 =new ArrayList<>();
+        drawList1.add(R.drawable.gushi5);
+        drawList1.add(R.drawable.gushi6);
+        drawList1.add(R.drawable.gushi7);
+        drawList1.add(R.drawable.gushi8);
+        tableView2.setDrawList(this,drawList1);
         tableView2.setOnItemClick(new TableView2.OnItemClickListener() {
             @Override
             public void onItemClick(int num) {

@@ -11,9 +11,9 @@ public class Activityyinwenge extends ShowBaseActivity1 {
 
     @Override
     protected Intent getMyIntent(int num) {
-        Intent intent =new Intent(Activityyinwenge.this,ActivityMusic.class);
-        intent.putExtra(ActivityMusic.PATH,num);
-        intent.putExtra(ActivityMusic.TYPE,ActivityMusic.YINGWENGE);
+        Intent intent =new Intent(Activityyinwenge.this,Activitymusic.class);
+        intent.putExtra(Activitymusic.PATH,num);
+        intent.putExtra(Activitymusic.TYPE, Activitymusic.YINGWENGE);
         return intent;
     }
 

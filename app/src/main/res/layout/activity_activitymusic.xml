@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.vicky.myapp.ActivityMusic"
+    tools:context="com.example.vicky.myapp.Activitymusic"
     android:background="@drawable/yinyuebjt">
 
 
@@ -14,6 +14,15 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:src="@drawable/yinyuebb"
+        android:scaleType="centerInside"
+        android:background="#00000000"/>
+    <ImageView
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="130dp"
+        android:layout_width="200dp"
+        android:id="@+id/ivWord"
+        android:layout_height="wrap_content"
+        android:src="@drawable/a_gs_huixiangoushu"
         android:scaleType="centerInside"
         android:background="#00000000"/>
     <LinearLayout
@@ -59,6 +68,7 @@
         android:layout_alignParentLeft="true"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:id="@+id/fanhui"
         android:src="@drawable/yinyuefh"
         android:scaleType="centerInside"
         android:background="#00000000"/>
@@ -67,6 +77,7 @@
         android:layout_alignParentRight="true"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:id="@+id/video"
         android:scaleType="centerInside"
         android:src="@drawable/yinyuemv"
         android:background="#00000000"/>
