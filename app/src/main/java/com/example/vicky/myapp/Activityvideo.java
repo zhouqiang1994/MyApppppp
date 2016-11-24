@@ -52,10 +52,10 @@ public class ActivityVideo extends BaseActivity {
             public void onClick(View view) {
                 if(video.isPlaying()){
                     video.pause();
-                    btnStop.setImageDrawable(getDrawable(R.drawable.yinyuebf));
+                    btnStop.setImageResource(R.drawable.yinyuebf);
                 }else{
                     video.start();
-                    btnStop.setImageDrawable(getDrawable(R.drawable.yinyuezt));
+                    btnStop.setImageResource(R.drawable.yinyuezt);
                 }
             }
         });

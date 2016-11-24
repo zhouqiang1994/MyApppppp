@@ -10,9 +10,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.vicky.Data.Gushi;
+import com.example.vicky.Data.Movie;
 import com.example.vicky.Data.Tongyao;
 import com.example.vicky.Data.Yingwenge;
-import com.example.vicky.FileUtils;
 
 import java.util.ArrayList;
 
@@ -59,7 +59,7 @@ public class Activitymusic extends BaseActivity {
             @Override
             public void onClick(View view) {
                 next();
-                stop.setImageDrawable(getDrawable(R.drawable.yinyuezt));
+                stop.setImageResource(R.drawable.yinyuezt);
             }
         });
         stop = (ImageButton)findViewById(R.id.stop);
@@ -68,10 +68,10 @@ public class Activitymusic extends BaseActivity {
             public void onClick(View view) {
                 if(player.isPlaying()){
                     player.pause();
-                    stop.setImageDrawable(getDrawable(R.drawable.yinyuebf));
+                    stop.setImageResource(R.drawable.yinyuebf);
                 }else{
                     player.start();
-                    stop.setImageDrawable(getDrawable(R.drawable.yinyuezt));
+                    stop.setImageResource(R.drawable.yinyuezt);
                 }
             }
         });
@@ -81,7 +81,7 @@ public class Activitymusic extends BaseActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Activitymusic.this,ActivityVideo.class);
-                intent.putExtra(ActivityVideo.PATH,FileUtils.getExtDirCache()+"/movie.mp4");
+                intent.putExtra(ActivityVideo.PATH, new Movie().getPathListTongyao().get(num));
                 startActivity(intent);
                 finish();
 
@@ -93,12 +93,12 @@ public class Activitymusic extends BaseActivity {
             @Override
             public void onClick(View view) {
                 last();
-                stop.setImageDrawable(getDrawable(R.drawable.yinyuezt));
+                stop.setImageResource(R.drawable.yinyuezt);
             }
         });
 
-        last = (ImageButton)findViewById(R.id.fanhui);
-        last.setOnClickListener(new View.OnClickListener() {
+        back = (ImageButton)findViewById(R.id.fanhui);
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
@@ -148,8 +148,13 @@ public class Activitymusic extends BaseActivity {
             player.reset(); //重置多媒体
 
             player.setDataSource(path);//为多媒体对象设置播放路径
-            player.prepare();//准备播放
-            player.start();//开始播放
+            player.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    player.start();//开始播放
+                }
+            });
+            player.prepareAsync();
         } catch (Exception e) {
             Log.v("MusicService", e.getMessage());
         }
@@ -160,5 +165,6 @@ public class Activitymusic extends BaseActivity {
     public void finish() {
         super.finish();
         player.stop();
+        player.release();
     }
 }
