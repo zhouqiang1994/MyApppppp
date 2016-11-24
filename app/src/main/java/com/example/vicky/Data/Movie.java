@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class Movie {
     ArrayList<String> pathListTongyao =new ArrayList<>();
+    ArrayList<String> pathListGushi =new ArrayList<>();
     public Movie(){
         pathListTongyao.add(FileUtils.getMovieCache()+"/tongyao1.mp4");
         pathListTongyao.add(FileUtils.getMovieCache()+"/tongyao2.mp4");
@@ -20,10 +21,22 @@ public class Movie {
         pathListTongyao.add(FileUtils.getMovieCache()+"/tongyao7.mp4");
         pathListTongyao.add(FileUtils.getMovieCache()+"/tongyao8.mp4");
 
+        pathListGushi.add(FileUtils.getMovieCache()+"/gushi1.mp4");
+        pathListGushi.add(FileUtils.getMovieCache()+"/gushi2.mp4");
+        pathListGushi.add(FileUtils.getMovieCache()+"/gushi3.mp4");
+        pathListGushi.add(FileUtils.getMovieCache()+"/gushi4.mp4");
+        pathListGushi.add(FileUtils.getMovieCache()+"/gushi5.mp4");
+        pathListGushi.add(FileUtils.getMovieCache()+"/gushi6.mp4");
+        pathListGushi.add(FileUtils.getMovieCache()+"/gushi7.mp4");
+        pathListGushi.add(FileUtils.getMovieCache()+"/gushi8.mp4");
+
     }
 
     public ArrayList<String> getPathListTongyao() {
         return pathListTongyao;
     }
 
+    public ArrayList<String> getPathListGushi() {
+        return pathListGushi;
+    }
 }

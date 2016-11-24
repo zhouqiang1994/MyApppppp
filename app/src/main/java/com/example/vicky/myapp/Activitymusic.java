@@ -81,7 +81,11 @@ public class Activitymusic extends BaseActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Activitymusic.this,ActivityVideo.class);
-                intent.putExtra(ActivityVideo.PATH, new Movie().getPathListTongyao().get(num));
+                if(type==GUSHI) {
+                    intent.putExtra(ActivityVideo.PATH, new Movie().getPathListGushi().get(num));
+                }else if(type == TONGYAO){
+                    intent.putExtra(ActivityVideo.PATH, new Movie().getPathListTongyao().get(num));
+                }
                 startActivity(intent);
                 finish();
 
